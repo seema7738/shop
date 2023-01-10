@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMaterials } from "../slices/MaterialSlice";
-import { retrieveProducts } from "../slices/ProductSlice";
 import { getColor } from "../slices/SidebarSlice";
 
 export const Sidebar = ({
@@ -18,8 +17,6 @@ export const Sidebar = ({
   const materialName = useSelector((state) => state.material.productMaterial);
   const productdData = useSelector((state) => state.product.products);
 
-  console.log("colo", productdData);
-
   useEffect(() => {
     dispatch(getColor());
     dispatch(getMaterials());
@@ -28,9 +25,6 @@ export const Sidebar = ({
     filteredColor(colorId, colorClikedTrue);
     setColorClikedTrue(true);
     setMaterialClickedTrue(false);
-
-    // dispatch(retrieveProducts(filteredData));
-    // productdData = filteredData;
   };
 
   const filterMaterial = (materialId) => {

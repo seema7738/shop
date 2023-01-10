@@ -26,7 +26,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     dispatch(retrieveProducts());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(retrievefeaturedProducts());
